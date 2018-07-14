@@ -293,10 +293,10 @@ void Status(){
   while(1){
     display.clearDisplay();
     display.setCursor(0,0);
-    display.println("<Status>-------------");
+    display.println("<Status>-------------\n");
     S2 = digitalRead(SW2);
     if(S2 == LOW) return;
-    display.print("Battery Voltage:\n               ");
+    display.print("Battery:       ");
     digitalWrite(battEn, HIGH);
     voltage = analogRead(bPin);
     voltage = (voltage / 1024) * 3.35;
@@ -310,7 +310,7 @@ void Status(){
     display.print("Pressure: ");
     display.print(bme.readPressure());
     display.println(" Pa");
-    display.print("Approx altitude:\n             ");
+    display.print("Altitude:    ");
     display.print(bme.readAltitude(1013.25)); 
     display.println(" m");
     display.display();
